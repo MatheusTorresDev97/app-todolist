@@ -1,6 +1,7 @@
 import { Text, View } from "react-native";
 import { styles } from "./styles";
 import Header from "../components/Header";
+import Task from "../components/Task";
 
 const HomeScreen = () => {
   return (
@@ -21,6 +22,18 @@ const HomeScreen = () => {
           </View>
           </View>
         </View>
+        <Task 
+        title="Estudar Mobile" 
+        isCompleted={false} 
+        />
+        <Task 
+        title="Estudar Mobile" 
+        isCompleted
+        />
+        <Task 
+        title="Estudar Mobile" 
+        isCompleted
+        />
       </View>
     </View>
   );
