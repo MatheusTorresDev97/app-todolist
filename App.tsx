@@ -16,7 +16,7 @@ export default function App() {
   return (
     <>
       {fontsLoaded ? <HomeScreen /> : <Loading /> }
-      <StatusBar style="auto" />
+      <StatusBar style="auto" translucent />
     </>
   );
 }
