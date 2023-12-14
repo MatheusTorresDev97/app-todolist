@@ -10,7 +10,7 @@ import { uuid } from "../utils/uuid";
 const HomeScreen = () => {
   const [tasks, setTasks] = useState<TaskDTO[]>([]);
   const [newTask, setNewTask] = useState("");
-  const newTaskInputRef = useRef<TextInput>(null)
+  const newTaskInputRef = useRef<TextInput>(null);
 
   const handleTaskAdd = () => {
     if (newTask !== "" && newTask.length >= 5) {
@@ -21,7 +21,12 @@ const HomeScreen = () => {
 
       setNewTask("");
 
-      newTaskInputRef.current?.blur()
+      newTaskInputRef.current?.blur();
+    } else {
+      Alert.alert(
+        "Tarefa não cadastrada",
+        "A tarefa deve ter mais de 5 caracteres"
+      );
     }
   };
 
@@ -35,22 +40,24 @@ const HomeScreen = () => {
   };
 
   const handleTaskDeleted = (id: string) => {
-    Alert.alert('Excluir tarefa', 'Deseja excluir tarefa?', [
+    Alert.alert("Excluir tarefa", "Deseja excluir tarefa?", [
       {
-        text: 'Sim',
-        style: 'default',
-        onPress: () => 
-          setTasks((tasks) => tasks.filter((task) => task.id !== id))
+        text: "Sim",
+        style: "default",
+        onPress: () =>
+          setTasks((tasks) => tasks.filter((task) => task.id !== id)),
       },
       {
-        text: 'Não',
-        style: 'cancel'
-      }
-    ])
+        text: "Não",
+        style: "cancel",
+      },
+    ]);
   };
 
-  const totalTasksCreated = tasks.length
-  const totalTasksCompleted = tasks.filter(({isCompleted}) => isCompleted).length
+  const totalTasksCreated = tasks.length;
+  const totalTasksCompleted = tasks.filter(
+    ({ isCompleted }) => isCompleted
+  ).length;
 
   return (
     <View style={styles.container}>
